@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 import plotly.graph_objects as go
 
 st.set_page_config(page_title="Churn Prediction",layout="wide")
@@ -29,8 +30,9 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     try:
-        model = joblib.load("Customer_Churn_Prediction.pkl")
-        encoders = joblib.load("Churn_Encoders.pkl")
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        model = joblib.load(os.path.join(base_dir, "Customer_Churn_Prediction.pkl"))
+        encoders = joblib.load(os.path.join(base_dir, "Churn_Encoders.pkl"))
         return model, encoders
     except FileNotFoundError:
         st.error("Model files not found. Run The notebook first.")
