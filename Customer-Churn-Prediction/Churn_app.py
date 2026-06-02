@@ -89,6 +89,8 @@ if model is not None:
         for column,encoder in encoders.items():
             if column in input_df.columns and input_df[column].dtype=='object':
                 input_df[column] = encoder.transform(input_df[column])
+        for col in input_df.select_dtypes(include='object').columns:
+            input_df[col] = input_df[col].astype('category')        
         prediction = model.predict(input_df)[0]
         proba = model.predict_proba(input_df)[0]
         st.markdown("---")
