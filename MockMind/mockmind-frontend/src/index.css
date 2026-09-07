@@ -1,0 +1,38 @@
+/* src/index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Colors */
+  --bg:        #0A0F1E;
+  --surface:   #111827;
+  --surface2:  #1A2035;
+  --indigo:    #6C63FF;
+  --indigo-dim:#4D46CC;
+  --white:     #F0F2FF;
+  --muted:     #8892A4;
+  --green:     #3DEBA0;
+  --red:       #FF5C5C;
+  --border:    rgba(108,99,255,0.18);
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Border radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+}
